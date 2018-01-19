@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 ao??t 2017 01:26:56 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.ninthQuantum.daara.generator.Semestre" table="SEMESTRE">
+        <id name="idSemestre" type="java.lang.Long">
+            <column name="IDSEMESTRE" />
+            <generator class="assigned" />
+        </id>
+        <property name="nom" type="java.lang.String">
+            <column name="NOM" />
+        </property>
+        <many-to-one name="notation" class="org.ninthQuantum.daara.generator.Notation" fetch="join">
+            <column name="NOTATION" />
+        </many-to-one>
+        <many-to-one name="etudiant" class="org.ninthQuantum.daara.entities.Etudiant" fetch="join">
+            <column name="ETUDIANT" />
+        </many-to-one>
+        <list name="controleContinu" inverse="false" table="SEMESTRE" lazy="true">
+            <key>
+                <column name="IDSEMESTRE" />
+            </key>
+            <list-index></list-index>
+            <element type="java.lang.Integer">
+                <column name="CONTROLECONTINU" />
+            </element>
+        </list>
+        <property name="comp" type="java.lang.Integer">
+            <column name="COMP" />
+        </property>
+        <property name="moyGen" type="java.lang.Integer">
+            <column name="MOYGEN" />
+        </property>
+    </class>
+</hibernate-mapping>

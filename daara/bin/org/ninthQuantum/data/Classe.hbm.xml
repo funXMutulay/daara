@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 ao??t 2017 01:26:56 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.ninthQuantum.data.Classe" table="CLASSE">
+        <id name="niveau" type="java.lang.String">
+            <column name="NIVEAU" />
+            <generator class="assigned" />
+        </id>
+        <property name="variance" type="java.lang.String">
+            <column name="VARIANCE" />
+        </property>
+        <many-to-one name="etablissement" class="org.ninthQuantum.data.Etablissement" fetch="join">
+            <column name="ETABLISSEMENT" />
+        </many-to-one>
+        <many-to-one name="surveillant" class="org.ninthQuantum.data.Surveillant" fetch="join">
+            <column name="SURVEILLANT" />
+        </many-to-one>
+        <bag name="listEtudClasse" table="ETUDIANT" inverse="false" lazy="true">
+            <key>
+                <column name="NIVEAU" />
+            </key>
+            <one-to-many class="org.ninthQuantum.daara.entities.Etudiant" />
+        </bag>
+        <bag name="listProfClasse" table="PROFESSEUR" inverse="false" lazy="true">
+            <key>
+                <column name="NIVEAU" />
+            </key>
+            <one-to-many class="org.ninthQuantum.data.Professeur" />
+        </bag>
+        <bag name="listMatClasse" table="MATIERE" inverse="false" lazy="true">
+            <key>
+                <column name="NIVEAU" />
+            </key>
+            <one-to-many class="org.ninthQuantum.daara.entities.Matiere" />
+        </bag>
+    </class>
+</hibernate-mapping>

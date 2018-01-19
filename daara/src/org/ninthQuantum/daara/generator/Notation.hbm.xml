@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 ao??t 2017 01:26:56 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.ninthQuantum.daara.generator.Notation" table="NOTATION">
+        <id name="idNota" type="java.lang.Long">
+            <column name="IDNOTA" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="affectProf" class="org.ninthQuantum.daara.generator.AffectationProfesseur" fetch="join">
+            <column name="AFFECTPROF" />
+        </many-to-one>
+        <bag name="listEtudiantSemestre" table="SEMESTRE" inverse="false" lazy="true">
+            <key>
+                <column name="IDNOTA" />
+            </key>
+            <one-to-many class="org.ninthQuantum.daara.generator.Semestre" />
+        </bag>
+    </class>
+</hibernate-mapping>

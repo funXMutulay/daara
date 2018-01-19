@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 ao??t 2017 01:26:56 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.ninthQuantum.data.Surveillant" table="SURVEILLANT">
+        <id name="idSurv" type="java.lang.Long">
+            <column name="IDSURV" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="etablissement" class="org.ninthQuantum.data.Etablissement" fetch="join">
+            <column name="ETABLISSEMENT" />
+        </many-to-one>
+        <property name="nom" type="java.lang.String">
+            <column name="NOM" />
+        </property>
+        <property name="prenom" type="java.lang.String">
+            <column name="PRENOM" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" />
+        </property>
+        <property name="numTel" type="java.lang.String">
+            <column name="NUMTEL" />
+        </property>
+        <bag name="listClasSurv" table="CLASSE" inverse="false" lazy="true">
+            <key>
+                <column name="IDSURV" />
+            </key>
+            <one-to-many class="org.ninthQuantum.data.Classe" />
+        </bag>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 ao??t 2017 01:26:56 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.ninthQuantum.daara.generator.AnneeScolaire" table="ANNEESCOLAIRE">
+        <id name="idAnneeScolaire" type="java.lang.Long" access="field">
+            <column name="IDANNEESCOLAIRE" />
+            <generator class="assigned" />
+        </id>
+        <property name="dateOuverture" type="java.util.Date">
+            <column name="DATEOUVERTURE" />
+        </property>
+        <property name="dateFermeture" type="java.util.Date">
+            <column name="DATEFERMETURE" />
+        </property>
+        <property name="anneeScolaire" type="java.lang.String">
+            <column name="ANNEESCOLAIRE" />
+        </property>
+    </class>
+</hibernate-mapping>

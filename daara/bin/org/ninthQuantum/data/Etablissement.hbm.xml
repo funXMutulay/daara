@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 ao??t 2017 01:26:56 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.ninthQuantum.data.Etablissement" table="ETABLISSEMENT">
+        <id name="idEtablissement" type="java.lang.Long">
+            <column name="IDETABLISSEMENT" />
+            <generator class="assigned" />
+        </id>
+        <property name="nom" type="java.lang.String">
+            <column name="NOM" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" />
+        </property>
+        <property name="region" type="java.lang.String">
+            <column name="REGION" />
+        </property>
+        <property name="pays" type="java.lang.String">
+            <column name="PAYS" />
+        </property>
+        <one-to-one name="princ" class="org.ninthQuantum.data.Principal"></one-to-one>
+        <bag name="listEtablissementSurv" table="SURVEILLANT" inverse="false" lazy="true">
+            <key>
+                <column name="IDETABLISSEMENT" />
+            </key>
+            <one-to-many class="org.ninthQuantum.data.Surveillant" />
+        </bag>
+        <bag name="listEtablissementProf" table="PROFESSEUR" inverse="false" lazy="true">
+            <key>
+                <column name="IDETABLISSEMENT" />
+            </key>
+            <one-to-many class="org.ninthQuantum.data.Professeur" />
+        </bag>
+        <bag name="listEtablissementClasse" table="CLASSE" inverse="false" lazy="true">
+            <key>
+                <column name="IDETABLISSEMENT" />
+            </key>
+            <one-to-many class="org.ninthQuantum.data.Classe" />
+        </bag>
+        <bag name="listEtablissementEtud" table="ETUDIANT" inverse="false" lazy="true">
+            <key>
+                <column name="IDETABLISSEMENT" />
+            </key>
+            <one-to-many class="org.ninthQuantum.daara.entities.Etudiant" />
+        </bag>
+        <bag name="listEtablissementMatiere" table="MATIERE" inverse="false" lazy="true">
+            <key>
+                <column name="IDETABLISSEMENT" />
+            </key>
+            <one-to-many class="org.ninthQuantum.daara.entities.Matiere" />
+        </bag>
+    </class>
+</hibernate-mapping>

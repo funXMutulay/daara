@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 ao??t 2017 01:26:56 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.ninthQuantum.daara.generator.Presence" table="PRESENCE">
+        <id name="idPres" type="java.lang.Long" access="field">
+            <column name="IDPRES" />
+            <generator class="assigned" />
+        </id>
+    </class>
+</hibernate-mapping>

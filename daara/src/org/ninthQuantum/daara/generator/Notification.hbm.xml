@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 ao??t 2017 01:26:56 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.ninthQuantum.daara.generator.Notification" table="NOTIFICATION">
+        <id name="idNotif" type="java.lang.Long">
+            <column name="IDNOTIF" />
+            <generator class="assigned" />
+        </id>
+        <property name="dateOfNotif" type="java.util.Date">
+            <column name="DATEOFNOTIF" />
+        </property>
+        <many-to-one name="etudNotif" class="org.ninthQuantum.daara.entities.Etudiant" fetch="join">
+            <column name="ETUDNOTIF" />
+        </many-to-one>
+        <many-to-one name="tutNotif" class="org.ninthQuantum.daara.entities.Tuteur" fetch="join">
+            <column name="TUTNOTIF" />
+        </many-to-one>
+        <property name="corpsNotif" type="java.awt.TextArea">
+            <column name="CORPSNOTIF" />
+        </property>
+    </class>
+</hibernate-mapping>

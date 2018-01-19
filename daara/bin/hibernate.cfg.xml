@@ -1,0 +1,58 @@
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+
+	<hibernate-configuration>
+		<session-factory>
+			<!-- Database connection settings -->
+			<property name="connection.driver_class">
+				com.mysql.jdbc.Driver
+			</property>
+			<property name="connection.url">
+				jdbc:mysql://localhost:3306/daaradb
+			</property>
+			<property name="connection.username">root</property>
+			<property name="connection.password">mmdukb</property>
+
+		
+
+			<!-- SQL dialect -->
+			<property name="dialect">
+				org.hibernate.dialect.MySQL5Dialect
+			</property>
+
+			
+
+			<!-- Disable the second-level cache  -->
+			<property name="cache.provider_class">
+				org.hibernate.cache.internal.NoCacheProvider
+			</property>
+
+			<!-- Echo all executed SQL to stdout -->
+			<property name="show_sql">true</property>
+			
+			<property name="hibernate.current_session_context_class">thread</property>
+
+			<!-- Drop and re-create the database schema on startup -->
+			<property name="hbm2ddl.auto">create</property>
+			<mapping class="org.ninthQuantum.daara.entities.Etudiant" />
+			<mapping class="org.ninthQuantum.daara.entities.Matiere" />
+			<mapping class="org.ninthQuantum.daara.entities.Tuteur" />
+			<mapping class="org.ninthQuantum.daara.generator.AffectationProfesseur" />
+			<mapping class="org.ninthQuantum.daara.generator.AffectationSurveillant" />
+			<mapping class="org.ninthQuantum.daara.generator.AnneeScolaire" />
+			<mapping class="org.ninthQuantum.daara.generator.Notation" />
+			<mapping class="org.ninthQuantum.daara.generator.Notification" />
+			<mapping class="org.ninthQuantum.daara.generator.Presence" />
+			<mapping class="org.ninthQuantum.daara.generator.Semestre" />
+			<mapping class="org.ninthQuantum.data.Classe" />
+			<mapping class="org.ninthQuantum.data.Etablissement" />
+			<mapping class="org.ninthQuantum.data.Principal" />
+			<mapping class="org.ninthQuantum.data.Professeur" />
+			<mapping class="org.ninthQuantum.data.Surveillant" />
+
+		</session-factory>
+	</hibernate-configuration>
+

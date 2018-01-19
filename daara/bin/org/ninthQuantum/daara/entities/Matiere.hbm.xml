@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 ao??t 2017 01:26:56 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.ninthQuantum.daara.entities.Matiere" table="MATIERE">
+        <id name="nomMat" type="java.lang.String">
+            <column name="NOMMAT" />
+            <generator class="assigned" />
+        </id>
+        <property name="codeMat" type="java.lang.String">
+            <column name="CODEMAT" />
+        </property>
+        <property name="coef" type="int">
+            <column name="COEF" />
+        </property>
+        <many-to-one name="etablissement" class="org.ninthQuantum.data.Etablissement" fetch="join">
+            <column name="ETABLISSEMENT" />
+        </many-to-one>
+        <bag name="listClasseMatiere" table="CLASSE" inverse="false" lazy="true">
+            <key>
+                <column name="NOMMAT" />
+            </key>
+            <one-to-many class="org.ninthQuantum.data.Classe" />
+        </bag>
+        <bag name="listProsseurMatiere" table="PROFESSEUR" inverse="false" lazy="true">
+            <key>
+                <column name="NOMMAT" />
+            </key>
+            <one-to-many class="org.ninthQuantum.data.Professeur" />
+        </bag>
+    </class>
+</hibernate-mapping>
